@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  /* 1. 폰트 변수 선언 (Pretendard로 통일) */
+  --font-sans: 'Pretendard', sans-serif;
+
+  /* 2. 색상 변수 선언 (라이트 모드) */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* 3. 다크 모드 색상 변수 */
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 4. Tailwind에 변수 등록 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans); /* <-- 아까 선언한 --font-sans를 등록 */
+  /* --font-mono: ... (모노 폰트 필요하면 여기에) */
+}
+
+/* 5. body에 적용 */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  
+  /* Tailwind의 'font-sans' 클래스를 쓰거나 
+    변수를 직접 적용합니다.
+    'Arial'은 삭제! 
+  */
+  font-family: var(--font-sans);
+}
+
+/* 스크롤바 숨기기 (이건 잘하셨어요) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
