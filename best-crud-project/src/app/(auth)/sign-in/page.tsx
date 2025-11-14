@@ -1,4 +1,4 @@
-import Button from '@/src/components/ui/Button';
+import Button from '@/src/shared/components/ui/Button';
 import SigninForm from '@/src/features/auth/sign-in/ui/SigninForm';
 import Link from 'next/link';
 import ROUTES from '@/src/shared/config/routes';

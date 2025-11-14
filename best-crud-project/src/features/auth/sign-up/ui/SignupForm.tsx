@@ -1,4 +1,4 @@
-import TextField from '@/src/components/ui/TextField';
+import TextField from '@/src/shared/components/ui/TextField';
 
 export default function SignupForm() {
   return (
