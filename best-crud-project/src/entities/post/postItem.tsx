@@ -1,18 +1,31 @@
+'use client';
+
 import Link from 'next/link';
 import type { Post } from '@/src/entities/post/types/post-type';
+import { usePostSelectionStore } from './post-selection-store';
 
 interface PostItemProps {
   post: Post;
 }
 
 export function PostItem({ post }: PostItemProps) {
+  const { selectedIds, toggleId } = usePostSelectionStore();
+  const isSelected = selectedIds.has(post.id);
+
   return (
     <>
-      <div className="text-grey-850 hover:bg-grey-50 border-grey-150 flex items-center border-b px-6 py-5 text-sm">
-        <input type="checkbox" className="mr-6" />
+      <div
+        className={`text-grey-850 hover:bg-grey-50 border-grey-150 flex items-center border-b px-6 py-4`}
+      >
+        <input
+          type="checkbox"
+          className="mr-6"
+          checked={isSelected}
+          onChange={() => toggleId(post.id)}
+        />
         <Link
           href={`/posts/${post.id}`}
-          className="hover:text-primary flex-1/2 font-medium"
+          className="hover:text-primary flex-1 font-medium"
         >
           {post.title}
         </Link>

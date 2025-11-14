@@ -11,7 +11,7 @@ import Button from '@/src/shared/ui/Button';
 import { useRouter } from 'next/navigation';
 
 // import { signinApi } from '@/src/entities/user/api/signinApi';
-import { useAuthStore } from '@/src/entities/user/userStore';
+import { useAuthStore } from '@/src/entities/user/user-store';
 
 export default function SigninForm() {
   const router = useRouter();

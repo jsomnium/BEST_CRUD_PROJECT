@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import ROUTES from '@/src/shared/constants/routes';
-import { useAuthStore } from '@/src/entities/user/userStore';
+import { useAuthStore } from '@/src/entities/user/user-store';
 
 export default function Header() {
   const { isLoggedIn, user, logout } = useAuthStore();
