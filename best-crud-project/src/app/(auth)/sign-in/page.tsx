@@ -1,10 +1,17 @@
+import Button from '@/src/components/ui/Button';
 import SigninForm from '@/src/features/auth/sign-in/ui/SigninForm';
+import Link from 'next/link';
+import ROUTES from '@/src/shared/config/routes';
 
 export default function SignInPage() {
   return (
-    <div>
-      <h1>로그인</h1>
+    <div className="ml-40 flex min-h-screen w-[540px] flex-col justify-center gap-6">
+      <h1 className="text-3xl font-bold">로그인</h1>
       <SigninForm />
+      <Button label="로그인" className="w-full" />
+      <Link href={ROUTES.SIGN_UP} className="underline">
+        회원가입
+      </Link>
     </div>
   );
 }
