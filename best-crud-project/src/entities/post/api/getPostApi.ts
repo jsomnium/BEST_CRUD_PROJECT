@@ -24,7 +24,7 @@ export const getPostsApi = async (
   
   // 페이지네이션 설정
   const page = parseInt(params.page || '1', 10);
-  const limit = parseInt(params.limit || '5', 10);
+  const limit = parseInt(params.limit || '4', 10);
   const totalCount = filteredPosts.length;
   const totalPages = Math.ceil(totalCount / limit);
   const startIndex = (page - 1) * limit;

@@ -7,6 +7,8 @@ interface PaginationProps {
   currentPage: number;
 }
 
+const PAGE_BLOCK_SIZE = 5;
+
 export default function Pagination({
   totalPages,
   currentPage,
@@ -16,15 +18,46 @@ export default function Pagination({
   const currentSearchParams = useSearchParams();
 
   const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+
     const params = new URLSearchParams(currentSearchParams.toString());
     params.set('page', String(page));
-    router.push(`${pathname}?${params.toString()}`); // (예: /posts?title=검색어&page=3)
+    router.push(`${pathname}?${params.toString()}`);
   };
 
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const currentBlock = Math.floor((currentPage - 1) / PAGE_BLOCK_SIZE);
+  const startPage = currentBlock * PAGE_BLOCK_SIZE + 1;
+  const endPage = Math.min(startPage + PAGE_BLOCK_SIZE - 1, totalPages);
+
+  const pageNumbers = [];
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePrevBlock = () => {
+    const prevBlockPage = Math.max(1, startPage - PAGE_BLOCK_SIZE);
+    handlePageChange(prevBlockPage);
+  };
+
+  const handleNextBlock = () => {
+    const nextBlockPage = endPage + 1;
+    handlePageChange(nextBlockPage);
+  };
+
+  if (totalPages <= 1) {
+    return null;
+  }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex items-center justify-center space-x-2">
+      {currentBlock > 0 && (
+        <button
+          onClick={handlePrevBlock}
+          className="text-grey-650 mx-1 cursor-pointer rounded px-3 py-1"
+        >
+          &lt;
+        </button>
+      )}
       {pageNumbers.map((page) => (
         <button
           key={page}
@@ -37,6 +70,14 @@ export default function Pagination({
           {page}
         </button>
       ))}
+      {endPage < totalPages && (
+        <button
+          onClick={handleNextBlock}
+          className="text-grey-650 mx-1 cursor-pointer rounded px-3 py-1"
+        >
+          &gt;
+        </button>
+      )}
     </div>
   );
 }

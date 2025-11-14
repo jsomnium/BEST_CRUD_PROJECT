@@ -15,7 +15,7 @@ export default function PostList({ posts }: PostListProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="mt-6 flex flex-1 flex-col gap-4">
       {posts.map((post) => (
         <div
           key={post.id}
