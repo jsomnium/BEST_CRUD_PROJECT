@@ -18,7 +18,7 @@ export default function Header() {
         [Logo]
       </Link>
       {isLoggedIn ? (
-        <div className="space-x-6">
+        <div className="flex items-center space-x-6 text-center">
           <span className="text-grey-750">
             안녕하세요,
             <span className="text-primary font-medium">{user?.nickname}</span>님

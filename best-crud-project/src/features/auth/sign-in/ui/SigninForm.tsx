@@ -46,7 +46,6 @@ export default function SigninForm() {
     }
   };
 
-  // 3. 폼은 내부에 선언된 onSubmit을 참조합니다.
   return (
     <form className="w-full space-y-6" onSubmit={handleSubmit(onSubmit)}>
       <TextField

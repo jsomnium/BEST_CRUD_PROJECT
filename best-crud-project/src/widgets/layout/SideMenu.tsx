@@ -1,28 +1,30 @@
+import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
   variant: 'compact' | 'expanded';
   size?: 'small' | 'medium' | 'large';
-  menuItems?: Array<{ label: string; href: string }>;
+  menuItems?: readonly { label: string; href: string }[];
   className?: string;
 };
 
 export default function SideMenu({
   variant = 'expanded',
   size = 'medium',
-  menuItems,
+  menuItems = [],
   className,
 }: Props) {
-  const baseStyle = 'border-r border-gray-300 h-full w-40';
+  const baseStyle = 'h-full';
   const variantStyles = {
-    compact: 'p-4',
-    expanded: 'p-6',
+    compact: 'w-16 p-2',
+    expanded: 'w-64 p-6',
   };
   const sizeStyles = {
     small: 'text-sm',
     medium: 'text-base',
     large: 'text-lg',
   };
+
   const style = twMerge(
     baseStyle,
     variantStyles[variant],
@@ -31,17 +33,19 @@ export default function SideMenu({
   );
 
   return (
-    <div className={style}>
-      SideMenu - {variant} - {size}
-      {menuItems && (
-        <ul>
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <nav className={style}>
+      <ul className="space-y-2">
+        {menuItems.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className="hover:bg-primary block rounded px-3 py-2 transition-colors hover:text-white"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
