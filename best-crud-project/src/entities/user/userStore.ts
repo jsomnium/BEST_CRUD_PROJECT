@@ -1,9 +1,10 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import type { User } from './types/user-type';
 
 interface AuthState {
-  user: { id: string; nickname: string; email: string  } | null;
-  login: (userData: { id: string; nickname: string; email: string }) => void;
+  user: User | null;
+  login: (userData: User) => void;
   logout: () => void;
   isLoggedIn: boolean;
 }

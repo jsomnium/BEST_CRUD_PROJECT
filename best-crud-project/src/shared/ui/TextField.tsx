@@ -11,7 +11,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(
   ({ label, className, error, ...props }, ref) => {
     return (
       <div className="flex flex-col gap-2">
-        <label>{label}</label>
+        {label && <label>{label}</label>}
         <input
           type="text"
           className={twMerge(
