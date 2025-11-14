@@ -28,7 +28,9 @@ export default function Header() {
           </button>
         </div>
       ) : (
-        <Link href={ROUTES.SIGN_IN}>로그인</Link>
+        <Link className="flex items-center" href={ROUTES.SIGN_IN}>
+          로그인
+        </Link>
       )}
     </header>
   );
