@@ -11,7 +11,6 @@ export default function SignUpPage() {
       </Link>
       <h1 className="text-3xl font-bold">회원가입</h1>
       <SignupForm />
-      <Button label="회원가입" className="w-full" />
       <Link href={ROUTES.SIGN_IN} className="underline">
         로그인
       </Link>
