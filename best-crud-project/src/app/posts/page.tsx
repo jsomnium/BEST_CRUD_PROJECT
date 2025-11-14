@@ -20,10 +20,12 @@ export default async function PostsPage({
         <h1 className="mb-3 text-2xl font-medium">게시판</h1>
         <SearchPost searchParams={searchParams} total={posts.meta.totalCount} />
         <PostList posts={posts.posts} />
-        <Pagination
-          totalPages={posts.meta.totalPages}
-          currentPage={posts.meta.currentPage}
-        />
+        <div className="flex flex-1 items-end justify-center py-4">
+          <Pagination
+            totalPages={posts.meta.totalPages}
+            currentPage={posts.meta.currentPage}
+          />
+        </div>
       </div>
     </div>
   );

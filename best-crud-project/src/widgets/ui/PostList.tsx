@@ -1,43 +1,40 @@
-import Link from 'next/link';
-import type { Post } from '@/src/entities/post/types/post-type';
+import { Post } from '@/src/entities/post/types/post-type';
+import { PostItem } from '@/src/entities/post/postItem';
 
 interface PostListProps {
   posts: Post[];
 }
 
+const PostListHeader = () => {
+  return (
+    <div className="hidden border-b border-gray-300 px-6 py-3 font-semibold md:flex">
+      <input type="checkbox" className="mr-6" />
+      <span className="flex-1/2">제목</span>
+      <span className="w-32 text-center">작성자</span>
+      <span className="w-32 text-center">카테고리</span>
+      <span className="w-32 text-center">작성일</span>
+      <span className="w-32 text-center">수정</span>
+    </div>
+  );
+};
+
 export default function PostList({ posts }: PostListProps) {
   if (posts.length === 0) {
     return (
-      <div className="py-12 text-center">
-        <p className="text-grey-550 text-lg">검색 결과가 없습니다.</p>
+      <div className="mt-6 flex flex-col rounded-xl border border-gray-300 bg-white shadow-sm">
+        <PostListHeader />
+        <div className="py-12 text-center">
+          <p className="text-grey-450 text-sm">검색 결과가 없습니다.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="mt-6 flex flex-1 flex-col gap-4">
+    <div className="mt-6 flex flex-col rounded-xl border border-gray-300 bg-white shadow-sm">
+      <PostListHeader />
       {posts.map((post) => (
-        <div
-          key={post.id}
-          className="border-grey-250 rounded-lg border p-6 transition-shadow hover:shadow-md"
-        >
-          <div className="mb-3 flex items-start justify-between">
-            <Link
-              href={`/posts/${post.id}`}
-              className="text-foreground hover:text-primary text-xl font-semibold"
-            >
-              {post.title}
-            </Link>
-            <span className="bg-primary-light text-primary rounded px-2 py-1 text-sm">
-              {post.category}
-            </span>
-          </div>
-
-          <div className="text-grey-550 flex items-center justify-between text-sm">
-            <span>작성자: {post.author}</span>
-            <span>{post.postDate}</span>
-          </div>
-        </div>
+        <PostItem key={post.id} post={post} />
       ))}
     </div>
   );
