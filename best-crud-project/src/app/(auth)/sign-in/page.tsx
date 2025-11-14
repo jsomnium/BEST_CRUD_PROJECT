@@ -6,6 +6,9 @@ import ROUTES from '@/src/shared/config/routes';
 export default function SignInPage() {
   return (
     <div className="ml-40 flex min-h-screen w-[540px] flex-col justify-center gap-6">
+      <Link href={ROUTES.HOME} className="text-primary flex text-2xl font-bold">
+        [Logo]
+      </Link>
       <h1 className="text-3xl font-bold">로그인</h1>
       <SigninForm />
       <Button label="로그인" className="w-full" />
