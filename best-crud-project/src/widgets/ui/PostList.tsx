@@ -13,7 +13,7 @@ const PostListHeader = () => {
       <span className="w-32 text-center">작성자</span>
       <span className="w-32 text-center">카테고리</span>
       <span className="w-32 text-center">작성일</span>
-      <span className="w-32 text-center">수정</span>
+      <span className="w-12 text-center">수정</span>
     </div>
   );
 };
@@ -21,7 +21,7 @@ const PostListHeader = () => {
 export default function PostList({ posts }: PostListProps) {
   if (posts.length === 0) {
     return (
-      <div className="mt-6 flex flex-col rounded-xl border border-gray-300 bg-white shadow-sm">
+      <div className="border-grey-350 mt-6 flex flex-col rounded-xl border bg-white shadow-sm">
         <PostListHeader />
         <div className="py-12 text-center">
           <p className="text-grey-450 text-sm">검색 결과가 없습니다.</p>
@@ -31,7 +31,7 @@ export default function PostList({ posts }: PostListProps) {
   }
 
   return (
-    <div className="mt-6 flex flex-col rounded-xl border border-gray-300 bg-white shadow-sm">
+    <div className="border-grey-350 mt-6 flex flex-col rounded-xl border bg-white shadow-sm">
       <PostListHeader />
       {posts.map((post) => (
         <PostItem key={post.id} post={post} />

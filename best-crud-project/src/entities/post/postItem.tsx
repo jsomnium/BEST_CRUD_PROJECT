@@ -7,23 +7,22 @@ interface PostItemProps {
 
 export function PostItem({ post }: PostItemProps) {
   return (
-    <div className="p-6 transition-shadow hover:shadow-md">
-      <div className="mb-3 flex items-start justify-between">
+    <>
+      <div className="text-grey-850 hover:bg-grey-50 border-grey-150 flex items-center border-b px-6 py-5 text-sm">
+        <input type="checkbox" className="mr-6" />
         <Link
           href={`/posts/${post.id}`}
-          className="text-foreground hover:text-primary text-xl font-semibold"
+          className="hover:text-primary flex-1/2 font-medium"
         >
           {post.title}
         </Link>
-        <span className="bg-primary-light text-primary rounded px-2 py-1 text-sm">
-          {post.category}
-        </span>
+        <span className="w-32 text-center text-sm">{post.category}</span>
+        <span className="w-32 text-center text-sm">{post.author}</span>
+        <span className="w-32 text-center text-sm">{post.postDate}</span>
+        <button className="hover:text-primary w-12 cursor-pointer text-center text-sm">
+          수정
+        </button>
       </div>
-
-      <div className="text-grey-550 flex items-center justify-between text-sm">
-        <span>작성자: {post.author}</span>
-        <span>{post.postDate}</span>
-      </div>
-    </div>
+    </>
   );
 }
