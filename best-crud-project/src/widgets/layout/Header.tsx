@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ROUTES from '@/src/shared/config/routes';
+import ROUTES from '@/src/shared/constants/routes';
 
 export default function Header() {
   return (

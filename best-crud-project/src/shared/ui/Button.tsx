@@ -15,7 +15,7 @@ const Button = ({
   label = '',
   ...props
 }: ButtonProps) => {
-  const baseStyle = 'cursor-pointer rounded-md px-4 py-2'; // 공통 스타일
+  const baseStyle = 'cursor-pointer rounded-md px-4 py-2';
 
   const variantStyles = {
     primary: 'bg-primary text-white',

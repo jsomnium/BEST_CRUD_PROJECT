@@ -1,7 +1,7 @@
-import Button from '@/src/shared/components/ui/Button';
+import Button from '@/src/shared/ui/Button';
 import SignupForm from '@/src/features/auth/sign-up/ui/SignupForm';
 import Link from 'next/link';
-import ROUTES from '@/src/shared/config/routes';
+import ROUTES from '@/src/shared/constants/routes';
 
 export default function SignUpPage() {
   return (

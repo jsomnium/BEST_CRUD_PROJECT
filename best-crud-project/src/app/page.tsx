@@ -1,10 +1,11 @@
-import Header from '../shared/components/layout/Header';
+import Header from '../widgets/layout/Header';
+import SideMenu from '../widgets/layout/SideMenu';
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex h-screen flex-col">
       <Header />
-      HomePage
+      <SideMenu variant="expanded" size="large" />
     </div>
   );
 }
