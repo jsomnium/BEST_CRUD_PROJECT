@@ -15,19 +15,20 @@ export const usePostSelectionStore = create<PostSelectionState>((set) => ({
       const newSelectedIds = new Set(state.selectedIds);
       if (newSelectedIds.has(id)) {
         newSelectedIds.delete(id);
-      } else {
-        newSelectedIds.add(id);
+        return { selectedIds: newSelectedIds }; 
       }
+      
+      newSelectedIds.add(id);
       return { selectedIds: newSelectedIds };
     }),
-
+  
   selectAll: (ids) =>
     set((state) => {
-      if (ids.every((id) => state.selectedIds.has(id))) {
-        return { selectedIds: new Set() };
-      } // 이미 모두 선택되었다면, 전부 해제
-
-      return { selectedIds: new Set(ids) };
+      const isAllSelected = ids.every((id) => state.selectedIds.has(id));
+      
+      return {
+        selectedIds: isAllSelected ? new Set() : new Set(ids),
+      };
     }),
 
   clear: () => set({ selectedIds: new Set() }),
