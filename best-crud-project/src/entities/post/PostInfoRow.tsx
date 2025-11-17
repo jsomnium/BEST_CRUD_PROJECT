@@ -32,7 +32,7 @@ export default function PostInfoRow({
   return (
     <div className={computedClassName}>
       {label && <span className="w-30">{label}</span>}
-      <span className="flex-1 whitespace-pre-line">{value}</span>{' '}
+      <span className="flex-1 whitespace-pre-line">{value}</span>
     </div>
   );
 }

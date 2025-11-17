@@ -13,7 +13,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between px-8 py-4">
+    <header className="flex w-full justify-between px-8 py-4">
       <Link href={ROUTES.HOME} className="text-primary flex text-2xl font-bold">
         [Logo]
       </Link>

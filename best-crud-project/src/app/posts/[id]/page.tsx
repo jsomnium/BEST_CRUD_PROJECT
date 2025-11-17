@@ -1,4 +1,5 @@
 import { getPostDetailApi } from '@/src/entities/post/api/getPostDetail';
+import Button from '@/src/shared/ui/Button';
 import Header from '@/src/widgets/layout/Header';
 import { PostDetail } from '@/src/widgets/ui/PostDetail';
 import { notFound } from 'next/navigation';
@@ -16,11 +17,14 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
   }
 
   return (
-    <div className="w-full">
+    <>
       <Header />
-      <div className="flex w-full flex-col gap-4 px-20 py-15">
+      <div className="flex w-full flex-col gap-4 px-20 pt-15 pb-25">
         <PostDetail post={post} />
       </div>
-    </div>
+      <div className="flex justify-end px-20 pb-20">
+        <Button label="수정하기" className="hover:bg-primary-deep w-40" />
+      </div>
+    </>
   );
 }
