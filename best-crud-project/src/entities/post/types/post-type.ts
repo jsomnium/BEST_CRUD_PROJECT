@@ -1,9 +1,12 @@
+export type Difficulty = 'easy' | 'medium' | 'hard';
+
 export interface Post {
-  id: string;
+  postId: string;
   title: string;
   author: string;
   category: string;
   postDate: string;
+  difficulty: Difficulty;
   content?: string;
 }
 

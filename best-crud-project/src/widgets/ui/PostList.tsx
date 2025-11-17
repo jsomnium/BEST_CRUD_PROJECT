@@ -4,10 +4,6 @@ import { PostItem } from '@/src/entities/post/PostItem';
 import { Post } from '@/src/entities/post/types/post-type';
 import { usePostSelectionStore } from '@/src/entities/post/post-selection-store';
 
-interface PostListProps {
-  posts: Post[];
-}
-
 interface PostListHeaderProps {
   allPostIdsOnPage: string[];
 }
@@ -35,9 +31,10 @@ const PostListHeader = ({ allPostIdsOnPage }: PostListHeaderProps) => {
         onChange={handleSelectAll}
       />
       <span className="flex-1">제목</span>
-      <span className="w-32 text-center">작성자</span>
-      <span className="w-32 text-center">카테고리</span>
-      <span className="w-32 text-center">작성일</span>
+      <span className="w-25 text-center">난이도</span>
+      <span className="w-25 text-center">작성자</span>
+      <span className="w-25 text-center">카테고리</span>
+      <span className="w-25 text-center">작성일</span>
       <span className="w-12 text-center">수정</span>
     </div>
   );
@@ -51,9 +48,13 @@ const EmptyResults = () => {
   );
 };
 
+interface PostListProps {
+  posts: Post[];
+}
+
 export default function PostList({ posts }: PostListProps) {
   const isEmpty = posts.length === 0;
-  const allPostIdsOnPage = posts.map((post) => post.id);
+  const allPostIdsOnPage = posts.map((post) => post.postId);
 
   return (
     <div className="border-grey-350 mt-6 flex flex-col rounded-xl border bg-white shadow-sm">
@@ -62,7 +63,7 @@ export default function PostList({ posts }: PostListProps) {
       {isEmpty ? (
         <EmptyResults />
       ) : (
-        posts.map((post) => <PostItem key={post.id} post={post} />)
+        posts.map((post) => <PostItem key={post.postId} post={post} />)
       )}
     </div>
   );
