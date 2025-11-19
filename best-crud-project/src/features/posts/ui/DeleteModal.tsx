@@ -2,7 +2,7 @@
 
 import { Modal } from '@/src/shared/ui/Modal';
 import Button from '@/src/shared/ui/Button';
-import { usePostSelectionStore } from '@/src/entities/post/post-selection-store';
+import { usePostSelectionStore } from '@/src/features/posts/model/usePostSelectionStore';
 import { useDeletePostStore } from '../model/useDeletePostStore';
 
 // Mock API

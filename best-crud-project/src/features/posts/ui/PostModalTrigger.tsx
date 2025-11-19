@@ -1,10 +1,10 @@
 'use client';
 
 import Button from '@/src/shared/ui/Button';
-import { useManagePostStore } from '../useManagePostStore.ts';
-import { Post } from '@/src/entities/post/types/post-type.js';
-import { ManagePostModal } from './ManagePostModal';
+import { Post } from '@/src/entities/post/types/post-type';
+import { PostModal } from './PostModal';
 import { useRouter } from 'next/navigation';
+import { useManagePostStore } from '../model/useManagePostStore.ts';
 
 type PostModalTriggerProps = {
   defaultValues: Post;
@@ -28,7 +28,7 @@ export function PostModalTrigger({ defaultValues }: PostModalTriggerProps) {
         onClick={() => actions.openEdit(defaultValues)}
       />
 
-      <ManagePostModal />
+      <PostModal />
     </>
   );
 }

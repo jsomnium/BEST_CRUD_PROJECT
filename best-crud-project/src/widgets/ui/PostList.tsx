@@ -2,7 +2,7 @@
 
 import { PostItem } from '@/src/entities/post/PostItem';
 import { Post } from '@/src/entities/post/types/post-type';
-import { usePostSelectionStore } from '@/src/entities/post/post-selection-store';
+import { usePostSelectionStore } from '@/src/features/posts/model/usePostSelectionStore';
 
 interface PostListHeaderProps {
   allPostIdsOnPage: string[];

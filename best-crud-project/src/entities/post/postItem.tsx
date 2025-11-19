@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import type { Post } from '@/src/entities/post/types/post-type';
-import { usePostSelectionStore } from './post-selection-store';
+import { usePostSelectionStore } from '../../features/posts/model/usePostSelectionStore';
 import { convertDifficultyToKorean } from './utils/convertDifficultyToKor';
 
 interface PostItemProps {

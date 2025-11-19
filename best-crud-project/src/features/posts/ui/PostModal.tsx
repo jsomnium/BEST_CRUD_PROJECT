@@ -1,11 +1,11 @@
 'use client';
 
-import PostForm from '../ui/PostForm';
+import PostForm from './PostForm';
 import { Modal } from '@/src/shared/ui/Modal';
-import { useManagePostStore } from '../useManagePostStore.ts';
+import { useManagePostStore } from '../model/useManagePostStore.ts';
 import { PostFormData } from '@/src/entities/post/lib/validation';
 
-export function ManagePostModal() {
+export function PostModal() {
   const { isOpen, mode, editTarget, actions } = useManagePostStore();
 
   // const { mutate: createPost } = useCreatePostMutation();

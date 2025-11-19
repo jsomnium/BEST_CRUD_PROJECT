@@ -4,8 +4,8 @@ import type { PostSearchParams } from '@/src/entities/post/types/post-type';
 import PostList from '@/src/widgets/ui/PostList';
 import { getPostsApi } from '@/src/entities/post/api/getPostApi';
 import Pagination from '@/src/features/posts/ui/Pagination';
-import { CreatePostTrigger } from '@/src/features/posts/modal/CreateModalTrigger';
-import { DeleteButtonTrigger } from '@/src/features/posts/delete-posts/ui/DeleteModalTrigger';
+import { CreatePostTrigger } from '@/src/features/posts/ui/CreatePostTrigger';
+import { DeleteButtonTrigger } from '@/src/features/posts/ui/DeleteModalTrigger';
 
 export default async function PostsPage({
   searchParams: searchParamsPromise,

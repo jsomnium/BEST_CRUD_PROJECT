@@ -1,8 +1,8 @@
 'use client';
 
 import Button from '@/src/shared/ui/Button';
-import { useManagePostStore } from '../useManagePostStore.ts';
-import { ManagePostModal } from './ManagePostModal';
+import { useManagePostStore } from '../model/useManagePostStore.ts';
+import { PostModal } from './PostModal';
 
 export function CreatePostTrigger() {
   const openCreate = useManagePostStore((state) => state.actions.openCreate);
@@ -15,7 +15,7 @@ export function CreatePostTrigger() {
         variant="white"
         onClick={openCreate}
       />
-      <ManagePostModal />
+      <PostModal />
     </>
   );
 }

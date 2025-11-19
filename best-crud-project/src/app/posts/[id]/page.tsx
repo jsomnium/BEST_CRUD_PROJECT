@@ -1,5 +1,5 @@
 import { getPostDetailApi } from '@/src/entities/post/api/getPostDetail';
-import { PostModalTrigger } from '@/src/features/posts/modal/PostModalTrigger';
+import { PostModalTrigger } from '@/src/features/posts/ui/PostModalTrigger';
 import Header from '@/src/widgets/layout/Header';
 import { PostDetail } from '@/src/widgets/ui/PostDetail';
 import { notFound } from 'next/navigation';
