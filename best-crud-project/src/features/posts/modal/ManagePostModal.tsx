@@ -19,7 +19,7 @@ export function ManagePostModal() {
       console.log('수정 API 호출:', { id: editTarget?.postId, ...data });
       // updatePost({ id: editTarget.id, ...data });
     }
-    actions.close(); // 성공 시 닫기
+    actions.close();
   };
 
   return (

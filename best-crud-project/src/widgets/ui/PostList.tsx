@@ -57,7 +57,7 @@ export default function PostList({ posts }: PostListProps) {
   const allPostIdsOnPage = posts.map((post) => post.postId);
 
   return (
-    <div className="border-grey-350 mt-6 flex flex-col rounded-xl border bg-white shadow-sm">
+    <div className="border-grey-350 mt-3 flex flex-col rounded-xl border bg-white shadow-sm">
       <PostListHeader allPostIdsOnPage={allPostIdsOnPage} />
 
       {isEmpty ? (
