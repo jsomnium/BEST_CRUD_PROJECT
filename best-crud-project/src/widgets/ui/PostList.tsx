@@ -1,6 +1,6 @@
 'use client';
 
-import { PostItem } from '../../entities/post/PostItem';
+import { PostItem } from '../../entities/post/tempname';
 import { Post } from '../../entities/post/types/post-type';
 import { usePostSelectionStore } from '@/src/features/posts/model/usePostSelectionStore';
 
