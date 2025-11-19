@@ -2,7 +2,7 @@ export default {
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   HOME: '/',
-  MY_PAGE: '/my-page',
+  MY: '/my',
   POST: '/posts',
   POST_CREATE: '/posts/create',
   POST_DETAIL: (postId: string) => `/posts/${postId}`,

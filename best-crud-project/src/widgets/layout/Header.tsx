@@ -21,7 +21,10 @@ export default function Header() {
         <div className="flex items-center space-x-6 text-center">
           <span className="text-grey-750">
             안녕하세요,
-            <span className="text-primary font-medium">{user?.nickname}</span>님
+            <Link href={ROUTES.MY} className="text-primary font-medium">
+              {user?.nickname}
+            </Link>
+            님
           </span>
           <button onClick={handleLogout} className="cursor-pointer">
             로그아웃
