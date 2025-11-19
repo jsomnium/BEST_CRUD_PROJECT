@@ -1,7 +1,7 @@
 'use client';
 
-import { PostItem } from '@/src/entities/post/PostItem';
-import { Post } from '@/src/entities/post/types/post-type';
+import { PostItem } from '../../entities/post/PostItem';
+import { Post } from '../../entities/post/types/post-type';
 import { usePostSelectionStore } from '@/src/features/posts/model/usePostSelectionStore';
 
 interface PostListHeaderProps {
