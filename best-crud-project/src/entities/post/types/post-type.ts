@@ -1,5 +1,11 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
+export enum DifficultyEnum {
+    EASY = 'easy',
+    MEDIUM = 'medium',
+    HARD = 'hard',
+}
+
 export interface Post {
   postId: string;
   title: string;

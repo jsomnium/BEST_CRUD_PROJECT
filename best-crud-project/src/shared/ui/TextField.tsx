@@ -15,7 +15,7 @@ const TextField = forwardRef<HTMLInputElement, Props>(
         <input
           type="text"
           className={twMerge(
-            `border-grey-35 focus:border-primary w-full items-start justify-start rounded-lg border px-4 py-2 text-start focus:outline-none`,
+            `border-grey-35 focus:border-primary border-grey-650 w-full items-start justify-start rounded-lg border px-4 py-2 text-start focus:outline-none`,
             error && 'border-red focus:border-red',
             className
           )}

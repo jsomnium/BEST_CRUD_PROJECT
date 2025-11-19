@@ -20,7 +20,7 @@ export function PostModalTrigger({ defaultValues }: PostModalTriggerProps) {
         label="이전으로"
         className="mr-3 w-40"
         variant="white"
-        onClick={() => router.push('/posts')}
+        onClick={() => router.back()}
       />
       <Button
         label="수정하기"

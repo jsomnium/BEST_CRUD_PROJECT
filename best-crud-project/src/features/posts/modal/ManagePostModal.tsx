@@ -3,16 +3,15 @@
 import PostForm from '../ui/PostForm';
 import { Modal } from '@/src/shared/ui/Modal';
 import { useManagePostStore } from '../useManagePostStore.ts';
-import { Post } from '@/src/entities/post/types/post-type.js';
+import { PostFormData } from '@/src/entities/post/lib/validation';
 
 export function ManagePostModal() {
   const { isOpen, mode, editTarget, actions } = useManagePostStore();
 
-  // API Mutation 훅 불러오기
   // const { mutate: createPost } = useCreatePostMutation();
   // const { mutate: updatePost } = useUpdatePostMutation();
 
-  const handleSubmit = (data: Post) => {
+  const handleSubmit = (data: PostFormData) => {
     if (mode === 'create') {
       console.log('생성 API 호출:', data);
       // createPost(data);
