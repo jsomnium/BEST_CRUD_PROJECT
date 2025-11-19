@@ -1,5 +1,7 @@
 import { getPostDetailApi } from '@/src/entities/post/api/getPostDetail';
+import { PostModalTrigger } from '@/src/features/posts/modal/PostModalTrigger';
 import Button from '@/src/shared/ui/Button';
+import { Modal } from '@/src/shared/ui/Modal';
 import Header from '@/src/widgets/layout/Header';
 import { PostDetail } from '@/src/widgets/ui/PostDetail';
 import { notFound } from 'next/navigation';
@@ -23,7 +25,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         <PostDetail post={post} />
       </div>
       <div className="flex justify-end px-20 pb-20">
-        <Button label="수정하기" className="hover:bg-primary-deep w-40" />
+        <PostModalTrigger />
       </div>
     </>
   );
