@@ -4,7 +4,7 @@ import type { Post } from '@/src/entities/post/types/post-type';
 type ManagePostState = {
   isOpen: boolean;
   mode: 'create' | 'edit';
-  editTarget: Post | null; // 수정할 때 채워질 데이터
+  editTarget: Post | null;
   actions: {
     openCreate: () => void;
     openEdit: (post: Post) => void;

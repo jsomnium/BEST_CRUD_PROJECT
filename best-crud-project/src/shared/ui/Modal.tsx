@@ -38,7 +38,7 @@ export const Modal = ({
       onClick={onClose}
     >
       <div
-        className="modal-content flex w-full flex-col gap-3 rounded-sm bg-white px-12 py-6 shadow-lg"
+        className="modal-content flex w-3xl flex-col gap-3 rounded-sm bg-white px-12 py-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <ModalHeader label={label} onClose={onClose} />

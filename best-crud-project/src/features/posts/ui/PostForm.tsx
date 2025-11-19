@@ -1,20 +1,29 @@
 import Button from '@/src/shared/ui/Button';
 import TextField from '@/src/shared/ui/TextField';
-
+import TextArea from '@/src/shared/ui/TextArea';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import TextArea from '@/src/shared/ui/TextArea';
 import { Post } from '@/src/entities/post/types/post-type';
 
+type PostFormProps = {
+  defaultValues?: Post | null;
+  onSubmit?: (post: Post) => void;
+  onCancel?: () => void;
+};
+
 // 게시판 생성, 수정에 사용하는 Form UI는 동일
-export default function PostForm({ initialData }: { initialData?: Post }) {
+export default function PostForm({
+  defaultValues,
+  onSubmit,
+  onCancel,
+}: PostFormProps) {
   return (
     <form className="flex w-full flex-col gap-3">
-      <div className="mt-5 flex w-100 flex-row">
+      <div className="mt-5 flex w-full flex-row">
         <span className="w-30">제목</span>
         <TextField
           className="border-grey-450"
-          defaultValue={initialData?.title}
+          defaultValue={defaultValues?.title}
         />
       </div>
       <div className="flex flex-row">
@@ -30,11 +39,18 @@ export default function PostForm({ initialData }: { initialData?: Post }) {
         <span>본문</span>
         <TextArea
           className="border-grey-450 h-60 w-full"
-          defaultValue={initialData?.content}
+          defaultValue={defaultValues?.content}
         />
       </div>
-      <div className="flex justify-end">
-        <Button label="완료" className="w-30" />
+      <div className="flex justify-end gap-3">
+        <Button
+          label="취소"
+          className="w-30"
+          variant="black"
+          onClick={onCancel}
+        />
+        {/* 수정한 내용 전송 또는 작성한 내용 전송 */}
+        <Button label="완료" className="w-30" onClick={() => onSubmit} />
       </div>
     </form>
   );

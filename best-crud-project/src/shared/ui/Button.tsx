@@ -1,6 +1,5 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export interface ButtonProps
@@ -19,7 +18,7 @@ const Button = ({
 
   const variantStyles = {
     primary: 'bg-primary text-white',
-    white: 'bg-grey-50 text-black border-1 border-grey-200',
+    white: 'bg-grey-50 text-grey-850 border-1 border-grey-850',
     grey: 'border-1 border-grey-250 text-grey-450',
     primary_light: 'bg-primary-light text-white',
     black: 'bg-grey-650 text-white',

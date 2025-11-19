@@ -25,7 +25,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         <PostDetail post={post} />
       </div>
       <div className="flex justify-end px-20 pb-20">
-        <PostModalTrigger />
+        <PostModalTrigger defaultValues={post} />
       </div>
     </>
   );
