@@ -3,12 +3,16 @@
 import { PostItem } from '@/src/entities/post/PostItem';
 import { Post } from '../../entities/post/types/post-type';
 import { usePostSelectionStore } from '@/src/features/posts/model/usePostSelectionStore';
+import { META_DATA_COLUMNS } from '@/src/features/posts/config/post-table-config';
 
 interface PostListHeaderProps {
   allPostIdsOnPage: string[];
 }
 
 const PostListHeader = ({ allPostIdsOnPage }: PostListHeaderProps) => {
+  // 테이블 설정(META_DATA_COLUMNS)에 따라 헤더 렌더링
+  // 아이템과 너비 동기화 목적
+
   const { selectedIds, selectAll } = usePostSelectionStore();
 
   const totalCount = allPostIdsOnPage.length;
@@ -23,19 +27,20 @@ const PostListHeader = ({ allPostIdsOnPage }: PostListHeaderProps) => {
   };
 
   return (
-    <div className="hidden border-b border-gray-300 px-6 py-3 font-semibold md:flex">
+    <div className="hidden border-b border-gray-300 px-6 py-3 font-semibold text-gray-800 md:flex">
       <input
         type="checkbox"
         className="mr-6"
         checked={isAllSelected}
         onChange={handleSelectAll}
+        aria-label="전체 게시글 선택"
       />
-      <span className="flex-1">제목</span>
-      <span className="w-25 text-center">난이도</span>
-      <span className="w-25 text-center">작성자</span>
-      <span className="w-25 text-center">카테고리</span>
-      <span className="w-25 text-center">작성일</span>
-      <span className="w-12 text-center">수정</span>
+
+      {META_DATA_COLUMNS.map((col) => (
+        <span key={col.key} className={`${col.width} text-center`}>
+          {col.label}
+        </span>
+      ))}
     </div>
   );
 };
